@@ -18,7 +18,7 @@ st.markdown("""
     <style>
         /* Main app background gradient */
         .stApp { 
-            background-image: url('https://xmple.com/wallpaper/pink-highlight-blue-gradient-linear-3840x2160-c2-0000ff-ff1493-l-50-a-195-f-21.svg'); 
+            background-image: url('https://xmple.com/wallpaper/gradient-purple-green-linear--c2-008080-9932cc-a-15-f-14-image/'); 
             color:#ffffff;
             background-repeat: no-repeat, repeat;
              background-size: cover;
@@ -72,7 +72,6 @@ def show_detailed_instructions():
     st.markdown("""
     
     """, unsafe_allow_html=True)
-
 
 
 def main():
@@ -134,7 +133,8 @@ def main():
 
     st.sidebar.title("WHATSAPP CHAT ANALYZER")
     # File processing and analysis trigger
-    uploaded_file = st.sidebar.file_uploader("📂 Upload your WhatsApp Chat (.txt)", type=["txt"])
+    uploaded_file = st.sidebar.file_uploader(
+        "📂 Upload your WhatsApp Chat (.txt)", type=["txt"])
 
     # Sidebar footer with creator information
     with st.sidebar:
@@ -170,7 +170,8 @@ def display_analysis(df):
     selected_user = st.sidebar.selectbox("👥 Select a User", user_list)
 
     if st.sidebar.button("🔎 Analyze Chat"):
-        user_df = df if selected_user == "Overall" else df[df["User"] == selected_user]
+        user_df = df if selected_user == "Overall" else df[df["User"]
+                                                           == selected_user]
         stats = calculate_statistics(user_df, df)  # Calculate key metrics
 
         # Display results
@@ -252,7 +253,8 @@ def visualize_top_users(stats):
     top_users = stats["Top Users"].reset_index()
     top_users.columns = ['User', 'Messages']
 
-    top_users['User'] = top_users['User'].apply(lambda x: str(x).split('\n')[0])
+    top_users['User'] = top_users['User'].apply(
+        lambda x: str(x).split('\n')[0])
 
     fig_users = px.bar(top_users, x='User', y='Messages',
                        labels={'User': 'User', 'Messages': 'Messages Sent'})
@@ -284,10 +286,12 @@ def visualize_emojis(user_df):
     st.write("### 😀 Most Used Emoji(s)")
     emoji_counts = extract_emojis(user_df["Message"])
     if emoji_counts:
-        df_emoji = pd.DataFrame(emoji_counts.items(), columns=["Emoji", "Count"]).nlargest(5, "Count")
+        df_emoji = pd.DataFrame(emoji_counts.items(), columns=[
+                                "Emoji", "Count"]).nlargest(5, "Count")
         fig_emoji = px.pie(df_emoji, names="Emoji", values="Count",
                            color_discrete_sequence=px.colors.sequential.Viridis_r)
-        fig_emoji.update_layout(plot_bgcolor='#0A192F', paper_bgcolor='#1a2f4b', font=dict(color='yellow'))
+        fig_emoji.update_layout(
+            plot_bgcolor='#0A192F', paper_bgcolor='#1a2f4b', font=dict(color='yellow'))
         st.plotly_chart(fig_emoji)
     else:
         st.write("❌ No emojis found in messages!")
@@ -311,6 +315,8 @@ def visualize_conversation_starters(stats):
         st.write("No conversation starters data available.")
 
 # to display the Most Active Days Per Week according to hrs. and days .
+
+
 def display_advanced_analysis(user_df):
     st.write("### 📅 Most Active Days Per Week")
     day_counts, day_percentages = analyze_active_days(user_df)
