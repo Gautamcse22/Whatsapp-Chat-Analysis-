@@ -18,7 +18,7 @@ st.markdown("""
     <style>
         /* Main app background gradient */
         .stApp { 
-            background-image: url('https://xmple.com/wallpaper/gradient-purple-green-linear--c2-008080-9932cc-a-15-f-14-image/'); 
+            background-image: url('https://xmple.com/wallpaper/linear-black-highlight-blue-gradient-3840x2160-c2-000000-00008b-l-50-a-270-f-21.svg'); 
             color:#ffffff;
             background-repeat: no-repeat, repeat;
              background-size: cover;
@@ -28,7 +28,7 @@ st.markdown("""
         .stSidebar { 
             background: linear-gradient(120deg, #f093fb, #f5576c);
             color:white;
-            
+
         }
         /* Custom info box styling */
         .info-box {
@@ -59,8 +59,8 @@ st.markdown("""
          # text-decoration:none;
          color:white;
          }
-         
-         
+
+
     </style>""", unsafe_allow_html=True)
 
 # Initialize custom graph styler
@@ -70,7 +70,7 @@ styler = GraphStyler()
 def show_detailed_instructions():
     """Displays comprehensive instructions that auto-hide when file is uploaded"""
     st.markdown("""
-    
+
     """, unsafe_allow_html=True)
 
 
@@ -97,8 +97,8 @@ def main():
                         <li>Select <span style='color:orange'>"Without Media"</span> option</li>
                         <li>Click Ok and <span style='color:#9BFF2E'>"Download the file in your own system"</span> option</li>
                     </ul>
-                    
-                    
+
+
             </div>
 
             <div style='margin: 15px 0;'>
@@ -287,7 +287,7 @@ def visualize_emojis(user_df):
     emoji_counts = extract_emojis(user_df["Message"])
     if emoji_counts:
         df_emoji = pd.DataFrame(emoji_counts.items(), columns=[
-                                "Emoji", "Count"]).nlargest(5, "Count")
+            "Emoji", "Count"]).nlargest(5, "Count")
         fig_emoji = px.pie(df_emoji, names="Emoji", values="Count",
                            color_discrete_sequence=px.colors.sequential.Viridis_r)
         fig_emoji.update_layout(
@@ -313,6 +313,7 @@ def visualize_conversation_starters(stats):
         st.plotly_chart(fig)
     else:
         st.write("No conversation starters data available.")
+
 
 # to display the Most Active Days Per Week according to hrs. and days .
 
