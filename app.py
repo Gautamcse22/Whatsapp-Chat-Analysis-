@@ -18,7 +18,7 @@ st.markdown("""
     <style>
         /* Main app background gradient */
         .stApp { 
-            background-image: url('https://xmple.com/wallpaper/linear-black-highlight-blue-gradient-3840x2160-c2-000000-00008b-l-50-a-270-f-21.svg'); 
+            background-image: url('https://xmple.com/wallpaper/linear-gradient-blue-3840x2160-c2-4682b4-191970-a-0-f-14.svg'); 
             color:#ffffff;
             background-repeat: no-repeat, repeat;
              background-size: cover;
@@ -26,7 +26,7 @@ st.markdown("""
         }
         /* Sidebar styling with gradient */
         .stSidebar { 
-            background: linear-gradient(120deg, #f093fb, #f5576c);
+            background: linear-gradient(120deg, #ff00cc, #ff66cc);
             color:white;
 
         }
