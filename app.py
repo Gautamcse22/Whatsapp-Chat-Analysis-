@@ -367,7 +367,7 @@ def main_app():
 
     st.markdown("""
         <div class="fixed-footer">
-            WhatsApp Chat Analyzer | Developed by: Bhagwan Ji Jha
+                WhatsApp Chat Analyzer | Developed by: Gautam Kumar Sah
         </div>
     """, unsafe_allow_html=True)
 
